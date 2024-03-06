@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   View,
   Animated,
@@ -6,13 +6,37 @@ import {
   StyleSheet,
   Text,
 } from "react-native";
-const FlipCard = ({ frontTitle = "", frontSubtitle = "", backTitle = "" }) => {
-  const animatedValue = useRef(new Animated.Value(0)).current;
-  const valueRef = useRef(0); // Usamos useRef para mantener el estado de la rotación
+
+const FlipCard = ({
+  frontTitle = "",
+  frontSubtitle = "",
+  backTitle = "",
+  isFront = true,
+}) => {
+  const animatedValue = useRef(new Animated.Value(isFront ? 0 : 180)).current;
+  const valueRef = useRef(isFront ? 0 : 180);
 
   animatedValue.addListener(({ value }) => {
-    valueRef.current = value; // Actualizamos el valor de la referencia aquí
+    valueRef.current = value;
   });
+
+  useEffect(() => {
+    if (isFront) {
+      Animated.spring(animatedValue, {
+        toValue: 0,
+        friction: 8,
+        tension: 10,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.spring(animatedValue, {
+        toValue: 180,
+        friction: 8,
+        tension: 10,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [isFront]);
 
   const frontInterpolate = animatedValue.interpolate({
     inputRange: [0, 180],
@@ -79,7 +103,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "white",
     backfaceVisibility: "hidden",
-    // Establece bordes y sombras para una mejor apariencia
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
