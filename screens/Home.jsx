@@ -22,13 +22,10 @@ const Home = () => {
       );
       const querySnapshot = await getDocs(collectionRef);
       if (docSnap.exists()) {
-        console.log(docSnap.data());
         const vocabularyData = [];
         querySnapshot.forEach((doc) => {
           vocabularyData.push(doc.data());
         });
-        console.log(vocabularyData)
-        // const vocabularyData = docSnap.data().vocabulary;
         setLanguageCardsData(vocabularyData);
       } else {
         console.log("No such document exists!");
