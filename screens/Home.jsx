@@ -4,6 +4,8 @@ import LanguageCard from "../components/LanguageCard";
 import { firestore } from "../utils/firebaseConfig";
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
+
+
 const Home = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
   const [languageCardsData, setLanguageCardsData] = useState([]);
@@ -18,7 +20,7 @@ const Home = () => {
       const docSnap = await getDoc(docRef);
       const collectionRef = collection(
         docRef,
-        "vocabulario"
+        "vocabulary"
       );
       const querySnapshot = await getDocs(collectionRef);
       if (docSnap.exists()) {
@@ -49,8 +51,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Home screen!</Text>
-      <Text style={styles.subtitle}>This is a subtitle.</Text>
+      <Text style={styles.title}>Leccion 12</Text>
       <View style={styles.container}>
         <LanguageCard
           frontTitle={languageCardsData[selectedCardIndex]?.frontTitle}
@@ -72,6 +73,7 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 32,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

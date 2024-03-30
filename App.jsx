@@ -7,15 +7,30 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/Home";
 import CollectionsScreen from "./screens/Collections";
 import SettingsScreen from "./screens/Settings";
+import { AntDesign } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen  name="Home" component={HomeScreen} />
-      <Tab.Screen name="Colecciones" component={CollectionsScreen} />
-      <Tab.Screen name="Ajustes" component={SettingsScreen} />
+      <Tab.Screen  name="Cards" component={HomeScreen} options={{
+        tabBarIcon: ({ color, size }) => (
+          <AntDesign name="home" size={size} color={color} />
+        ),
+      }} />
+      <Tab.Screen name="Colecciones" component={CollectionsScreen} options={{
+        tabBarIcon: ({ color, size }) => (
+          <AntDesign name="appstore1" size={size} color={color} />
+        ),
+      
+      }}/>
+      <Tab.Screen name="Ajustes" component={SettingsScreen} options={{
+        tabBarIcon: ({ color, size }) => (
+          <AntDesign name="setting" size={size} color={color} />
+        ),
+      
+      }}/>
     </Tab.Navigator>
   );
 }

@@ -78,13 +78,13 @@ const FlipCard = ({
     <View>
       <TouchableOpacity onPress={flipCard}>
         <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
-          <Text>{frontTitle}</Text>
-          {frontSubtitle && <Text>{frontSubtitle}</Text>}
+          <Text style={styles.frontTitle}>{frontTitle}</Text>
+          {frontSubtitle && <Text style={styles.frontSubtitle}>{frontSubtitle}</Text>}
         </Animated.View>
         <Animated.View
           style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle]}
         >
-          <Text>{backTitle}</Text>
+          <Text style={styles.backTitle}>{backTitle}</Text>
         </Animated.View>
       </TouchableOpacity>
     </View>
@@ -97,8 +97,8 @@ export default FlipCard;
 
 const styles = StyleSheet.create({
   flipCard: {
-    width: 200,
-    height: 300,
+    width: 350,
+    height: 400,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
@@ -116,5 +116,18 @@ const styles = StyleSheet.create({
   flipCardBack: {
     position: "absolute",
     top: 0,
+  },
+  frontTitle: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: "red",
+  },
+  frontSubtitle: {
+    paddingTop: 16,
+    fontSize: 24,
+  },
+  backTitle: {
+    fontSize: 48,
+    fontWeight: "bold",
   },
 });
