@@ -1,6 +1,7 @@
 import { View, Text, Button, FlatList } from "react-native";
 import React, { useState, useEffect } from "react";
 import { getLessons } from "../services/getLessons.service";
+import LessonCard from "../components/LessonCard";
 
 const Collections = () => {
   const [lessons, setLessons] = useState([]);
@@ -19,7 +20,7 @@ const Collections = () => {
   }, []);
   const renderItem = ({ item }) => (
     <View style={{ padding: 10 }}>
-      <Text>{item.lesson}</Text>
+      <LessonCard lesson={item}/>
     </View>
   );
 
