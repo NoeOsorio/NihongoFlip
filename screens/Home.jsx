@@ -8,26 +8,35 @@ import PickerModal from "../components/PickerModal";
 const Home = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
   const [languageCardsData, setLanguageCardsData] = useState([]);
-  const [selectedLesson, setSelectedLesson] = useState("L12");
+  const [selectedLesson, setSelectedLesson] = useState(0);
   const [lessons, setLessons] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCards = async () => {
-      const cardsData = await getCards("L12");
-      setLanguageCardsData(cardsData);
-    };
-
     const fetchLessons = async () => {
+      setIsLoading(true);
       try {
         const lessonsData = await getLessons();
         setLessons(lessonsData);
+        if (lessonsData.length) {
+          setSelectedLesson(0);
+        }
       } catch (error) {
         console.error("Error fetching lessons:", error);
       }
     };
-    fetchLessons()
-    fetchCards();
+    fetchLessons();
   }, []);
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      const cardsData = await getCards(lessons[selectedLesson]?.lesson);
+      setLanguageCardsData(cardsData);
+    };
+    setIsLoading(true);
+    fetchCards();
+    setIsLoading(false);
+  }, [lessons, selectedLesson]);
 
   const handleNext = () => {
     if (selectedCardIndex < languageCardsData.length - 1) {
@@ -46,8 +55,9 @@ const Home = () => {
       <PickerModal
         text="Selecciona Leccion"
         options={lessons}
+        onChange={setSelectedLesson}
       />
-      <Text style={styles.title}>Leccion 12</Text>
+      <Text style={styles.title}>{lessons[selectedLesson]?.title}</Text>
       <View style={styles.container}>
         <LanguageCard
           frontTitle={languageCardsData[selectedCardIndex]?.frontTitle}

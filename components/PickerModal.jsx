@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Modal, Button, View, StyleSheet, Platform } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-const PickerModal = ({ text = "", options }) => {
+const PickerModal = ({ text = "", options, onChange}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState("java");
 
   return (
-    <View style={{ marginTop: 22 }}>
+    <View style={{ marginTop: 10, marginBottom:10 }}>
       <Button title={text} onPress={() => setModalVisible(true)} />
 
       <Modal
@@ -26,6 +26,7 @@ const PickerModal = ({ text = "", options }) => {
               style={{ height: 200, width: 300 }}
               onValueChange={(itemValue, itemIndex) => {
                 setSelectedValue(itemValue);
+                onChange(itemIndex);
               }}
             >
               {options?.map(({ id, lesson }) => (
