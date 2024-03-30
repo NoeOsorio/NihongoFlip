@@ -5,7 +5,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/Home";
-import CollectionsScreen from "./screens/Collections";
+import LessonsScreen from "./screens/Lessons";
 import SettingsScreen from "./screens/Settings";
 import { AntDesign } from '@expo/vector-icons';
 
@@ -19,7 +19,7 @@ function MyTabs() {
           <AntDesign name="home" size={size} color={color} />
         ),
       }} />
-      <Tab.Screen name="Colecciones" component={CollectionsScreen} options={{
+      <Tab.Screen name="Colecciones" component={LessonsScreen} options={{
         tabBarIcon: ({ color, size }) => (
           <AntDesign name="appstore1" size={size} color={color} />
         ),
