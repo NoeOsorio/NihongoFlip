@@ -32,6 +32,7 @@ const Home = () => {
     const fetchCards = async () => {
       const cardsData = await getCards(lessons[selectedLesson]?.lesson);
       setLanguageCardsData(cardsData);
+      setSelectedCardIndex(0);
     };
     setIsLoading(true);
     fetchCards();
@@ -58,11 +59,13 @@ const Home = () => {
         onChange={setSelectedLesson}
       />
       <Text style={styles.title}>{lessons[selectedLesson]?.title}</Text>
-      <View style={styles.container}>
+      <View style={styles.cardContainer}>
         <LanguageCard
           frontTitle={languageCardsData[selectedCardIndex]?.frontTitle}
           frontSubtitle={languageCardsData[selectedCardIndex]?.frontSubtitle}
           backTitle={languageCardsData[selectedCardIndex]?.backTitle}
+          example={languageCardsData[selectedCardIndex]?.example}
+          exampleTranslation={languageCardsData[selectedCardIndex]?.exampleTranslation}
         />
         <View style={styles.buttonContainer}>
           {selectedCardIndex > 0 && (
@@ -78,16 +81,21 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    marginTop: 48,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   container: {
     marginTop: 32,
-    flex: 1,
-    justifyContent: "center",
+    display: "flex",
+    justifyContent: "",
     alignItems: "center",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 16,
+    // marginBottom: 16,
   },
   buttonContainer: {
     marginTop: 16,

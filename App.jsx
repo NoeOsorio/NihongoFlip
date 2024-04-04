@@ -15,11 +15,12 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen  name="Cards" component={HomeScreen} options={{
+
         tabBarIcon: ({ color, size }) => (
           <AntDesign name="home" size={size} color={color} />
         ),
       }} />
-      <Tab.Screen name="Colecciones" component={LessonsScreen} options={{
+      <Tab.Screen name="Lecciones" component={LessonsScreen} options={{
         tabBarIcon: ({ color, size }) => (
           <AntDesign name="appstore1" size={size} color={color} />
         ),
