@@ -62,6 +62,25 @@ Para configurar y ejecutar este proyecto en tu entorno de desarrollo:
 
 (Esta sección debe ser completada con detalles específicos sobre cómo los usuarios pueden subir tarjetas y lecciones a la base de datos de Firestore.)
 
+## 🌱 Agregar Nuevas Variables de Entorno
+
+Para agregar nuevas variables de entorno y asegurar su correcta implementación en tus entornos de desarrollo, prueba y producción:
+
+1. **Localmente**:
+   Añade la variable de entorno al archivo `.env` en la raíz de tu proyecto. Ejemplo:
+   `NUEVA_VARIABLE=valor`
+
+2. **En EAS Build**:
+   Utiliza el script `scripts/create-env.sh` para sincronizar tus variables de entorno con EAS. Ejecuta el siguiente comando en la terminal, sustituyendo `<tu_perfil_de_build>` por el perfil de build deseado, como `preview` o `production`:
+   `./scripts/create-env.sh .env --profile <tu_perfil_de_build>`
+   Este paso creará los secretos en EAS y actualizará tu `eas.json` automáticamente.
+
+3. **Verificación**:
+   Revisa `eas.json` para confirmar que las nuevas variables de entorno se han añadido correctamente al perfil de build deseado.
+
+Siguiendo estos pasos, puedes gestionar de manera eficiente las variables de entorno en tu proyecto LanguageCards, manteniendo una separación clara entre los entornos de desarrollo, prueba y producción.
+
+
 ## 🤝 Contribuir
 
 Si deseas contribuir a este proyecto, te invitamos a realizar un pull request o enviar un correo a [business@noeosorio.com](mailto:business@noeosorio.com).
