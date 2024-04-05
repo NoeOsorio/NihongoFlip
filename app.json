@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.noeosorio.languageCards"
@@ -22,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.noeosorio.languageCards"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -32,6 +31,17 @@
         "projectId": "916c396c-c901-4595-8219-d78df73d165d"
       }
     },
-    "owner": "noeos"
+    "owner": "noeos",
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useModularHeaders": true
+          },
+          "android": {}
+        }
+      ]
+    ]
   }
 }
