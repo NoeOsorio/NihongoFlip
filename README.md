@@ -80,6 +80,17 @@ Para agregar nuevas variables de entorno y asegurar su correcta implementación 
 
 Siguiendo estos pasos, puedes gestionar de manera eficiente las variables de entorno en tu proyecto Nihongo Flip, manteniendo una separación clara entre los entornos de desarrollo, prueba y producción.
 
+## 📖 Agregar Datos
+Para agregar nuevos datos a la base de datos, debes utilizar la herramienta [Nihongo Flip Data](https://github.com/NoeOsorio/NihongoFlip-data) que hemos creado específicamente para este propósito. Sigue los siguientes pasos:
+
+1. Clona el repositorio de GitHub en tu entorno de desarrollo local.
+2. Abre el archivo de datos correspondiente en el repositorio.
+3. Agrega los nuevos datos siguiendo el formato establecido.
+5. Los nuevos datos se actualizarán automáticamente en la base de datos.
+
+Recuerda seguir las pautas y convenciones establecidas en el repositorio para garantizar la consistencia y calidad de los datos agregados.
+
+¡Gracias por contribuir a nuestro proyecto!
 
 ## 🤝 Contribuir
 
