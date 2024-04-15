@@ -1,6 +1,6 @@
 <div align="center">
 
-# LanguageCards 📚
+# Nihongo Flip 📚
 
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
@@ -8,7 +8,7 @@
 
 Una aplicación de React Native para el aprendizaje de idiomas con tarjetas estilo Anki, que permite a los usuarios aprender y practicar vocabulario y frases en diferentes idiomas mediante tarjetas interactivas.
 
-![LanguageCards Logo](assets/logo.png)
+![Nihongo Flip Logo](assets/logo.png)
 
 </div>
 
@@ -20,7 +20,7 @@ Una aplicación de React Native para el aprendizaje de idiomas con tarjetas esti
 
 ## 🚀 Descripción
 
-LanguageCards está diseñada para ofrecer una experiencia de aprendizaje interactiva y atractiva, permitiendo a los usuarios practicar idiomas con el método de repetición espaciada. La integración con Firebase Firestore ofrece un backend robusto y escalable, facilitando la gestión de tarjetas y lecciones.
+Nihongo Flip está diseñada para ofrecer una experiencia de aprendizaje interactiva y atractiva, permitiendo a los usuarios practicar idiomas con el método de repetición espaciada. La integración con Firebase Firestore ofrece un backend robusto y escalable, facilitando la gestión de tarjetas y lecciones.
 
 ## 🌟 Características Principales
 
@@ -78,7 +78,7 @@ Para agregar nuevas variables de entorno y asegurar su correcta implementación 
 3. **Verificación**:
    Revisa `eas.json` para confirmar que las nuevas variables de entorno se han añadido correctamente al perfil de build deseado.
 
-Siguiendo estos pasos, puedes gestionar de manera eficiente las variables de entorno en tu proyecto LanguageCards, manteniendo una separación clara entre los entornos de desarrollo, prueba y producción.
+Siguiendo estos pasos, puedes gestionar de manera eficiente las variables de entorno en tu proyecto Nihongo Flip, manteniendo una separación clara entre los entornos de desarrollo, prueba y producción.
 
 
 ## 🤝 Contribuir
